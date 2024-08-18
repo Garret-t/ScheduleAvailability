@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+    <script type="text/javascript" src={{ url_for('static', filename='main.js') }}></script>
+    <title>Dr. Aubrey Harding Availability</title>
+</head>
+<body>
+    <h1>Dr. Aubrey Harding</h1>
+    <p>Dr. Harding is available for Annual Physical exams on the following days:</p>
+    <button id="currentButton">This Month</button>
+    <button id="nextButton" disabled>Next Month</button>
+    <ul id="dateList">
+    </ul>
+</body>
+</html>
