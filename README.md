@@ -5,7 +5,7 @@ docker build --tag scheduleavailability .
 docker run -d -p 5000:5000 scheduleavailability
 ```
 
-Connect at ```http://localhost:5000/```
+Connect at ```http://localhost:5000/```. Note: the loading may take a moment for the web scraping to occur.
 
 
 To run without a Docker image:

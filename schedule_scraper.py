@@ -2,6 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 from datetime import datetime
 
@@ -31,12 +34,14 @@ def _get_available_days(driver):
 
 
 def init_scraper_driver():
-    options = webdriver.ChromeOptions()
+    options = Options()
     options.add_argument('--disable-proxy-certificate-handler')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--ignore-ssl-errors')
     options.add_argument("--headless=new")
-    driver = webdriver.Chrome(options=options)
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
     return driver
 
